@@ -1,0 +1,115 @@
+@import "../../../../assets/styles/variables";
+
+footer.footer {
+  padding: 40px 0 54px 0;
+  background-color: #b9d5fd;
+
+  .container {
+
+    .footer-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 40px;
+
+      .logo {
+        margin-right: 40px;
+
+        img {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .footer-menu {
+
+        nav ul {
+          margin: 0;
+          padding: 0;
+          display: flex;
+
+          li {
+            margin-right: 20px;
+            list-style: none;
+            cursor: pointer;
+
+            a {
+              font-family: "Montserrat", sans-serif;
+              font-weight: 400;
+              font-size: 16px;
+              color: $main-text-color;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-info {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 6px;
+
+      .footer-info-block {
+        margin-right: 60px;
+
+        .footer-info-block-head {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 500;
+          font-size: 16px;
+          color: $main-blue-color;
+          margin-bottom: 10px;
+        }
+
+        .footer-info-block-address {
+          width: 253px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 130%;
+          color: $main-text-color;
+        }
+
+        a {
+          text-decoration: none;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          color: $main-text-color;
+        }
+
+        .footer-info-button {
+
+          .button {
+            margin-top: 10px;
+            width: 153px;
+          }
+        }
+
+        .footer-info-block-email {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+          color: $main-text-color
+        }
+
+        .footer-info-block-socials {
+          a {
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+
+    .footer-rights {
+      a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 130%;
+        color: $main-blue-color;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import "../../../../assets/styles/variables";
+header.header {
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-right: 100px;
+
+      img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .header-menu {
+      margin-right: 257px;
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+        li {
+          margin-right: 30px;
+          list-style: none;
+          cursor: pointer;
+
+          a {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: $main-text-color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .header-phone {
+      margin-right: 141px;
+      text-decoration: none;
+      font-size: 16px;
+      color: $main-blue-color;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 7px;
+      }
+
+      .header-actions-username {
+        min-width: 54px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: $main-text-color;
+      }
+    }
+  }
+}
