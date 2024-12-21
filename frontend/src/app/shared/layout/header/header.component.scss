@@ -1,4 +1,5 @@
 @import "../../../../assets/styles/variables";
+
 header.header {
   padding: 40px 0;
 
@@ -17,7 +18,7 @@ header.header {
     }
 
     .header-menu {
-      margin-right: 257px;
+      margin-right: 227px;
 
       nav ul {
         margin: 0;
@@ -41,23 +42,24 @@ header.header {
     }
 
     .header-phone {
-      margin-right: 141px;
+      margin-right: 138px;
       text-decoration: none;
       font-size: 16px;
       color: $main-blue-color;
     }
 
     .header-actions {
-      display: flex;
-      align-items: center;
       cursor: pointer;
 
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+
+      svg {
         margin-right: 7px;
       }
+
 
       .header-actions-username {
         min-width: 54px;
