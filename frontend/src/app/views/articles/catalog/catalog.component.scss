@@ -1,0 +1,106 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.catalog {
+  padding-top: 80px;
+  padding-bottom: 120px;
+
+  .container {
+
+    .catalog-title {
+      @include headLora38;
+      margin-bottom: 40px;
+    }
+
+    .catalog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      .catalog-applied-filters {
+        display: flex;
+        flex-wrap: wrap;
+
+        .catalog-applied-filter {
+          border: 2px solid $main-blue-color;
+          border-radius: 5px;
+          padding: 10px 20px;
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+          margin-bottom: 10px;
+
+          span {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: $main-blue-color;
+            margin-right: 8px;
+          }
+
+          a {
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+          }
+        }
+      }
+
+    }
+
+    .catalog-articles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 25px;
+      margin-top: 30px;
+    }
+
+    .pagination {
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .pagination-arrow {
+        cursor: pointer;
+        display: grid;
+        justify-items: center;
+
+        &:disabled {
+          fill: grey;
+        }
+      }
+
+      .pagination-pages {
+        margin-left: 40px;
+        margin-right: 40px;
+        display: flex;
+        align-items: center;
+
+        .pagination-page {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          width: 28px;
+          height: 46px;
+          margin-right: 20px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 20px;
+          text-align: center;
+          color: $main-text-color;
+
+          &.active {
+            color: #b9d5fd;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}

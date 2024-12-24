@@ -42,7 +42,8 @@ header.header {
     }
 
     .header-phone {
-      margin-right: 138px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
       text-decoration: none;
       font-size: 16px;
       color: $main-blue-color;
@@ -50,14 +51,14 @@ header.header {
 
     .header-actions {
       cursor: pointer;
-
+      margin-left: auto;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
 
       svg {
-        margin-right: 7px;
+        margin-right: 5px;
       }
 
 

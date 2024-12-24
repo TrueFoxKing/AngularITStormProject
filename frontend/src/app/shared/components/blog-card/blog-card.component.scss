@@ -1,0 +1,61 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.blog-card {
+  width: 291px;
+  height: 571px;
+  box-sizing: border-box;
+  position: relative;
+
+  .blog-card-image {
+    border-radius: 5px;
+    width: 291px;
+    height: 291px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .blog-card-subtitle {
+    @include headLora20;
+    //height: 78px;
+    margin: 15px 0 20px 0;
+  }
+
+  .blog-card-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $main-text-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8; /* Количество строк */
+    -webkit-box-orient: vertical;
+  }
+
+  a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration-skip-ink: none;
+    color: $main-blue-color;
+  }
+
+  .blog-card-category {
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    border-radius: 5px;
+    padding: 10px 18px;
+    background: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    text-align: center;
+    color: $main-blue-color;
+  }
+}

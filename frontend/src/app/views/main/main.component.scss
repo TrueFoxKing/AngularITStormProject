@@ -1,0 +1,389 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.slider {
+  margin-bottom: 120px;
+
+  .container {
+
+    .slider-block {
+      position: relative;
+
+      owl-carousel-o {
+
+        .slider-content {
+          height: 500px;
+          display: flex;
+          align-items: center;
+
+          .slider-content-offer {
+            margin: 100px 580px 98px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .slider-content-subtitle {
+              font-family: "Montserrat", sans-serif;
+              font-weight: 600;
+              font-size: 12px;
+              letter-spacing: 0.4em;
+              text-transform: uppercase;
+              color: $main-blue-color;
+              margin-bottom: 3px;
+            }
+
+            .slider-content-title {
+              font-family: "Lora", sans-serif;
+              font-weight: 400;
+              font-size: 50px;
+              line-height: 130%;
+              color: #fff;
+              margin-bottom: 20px;
+
+              span {
+                color: $main-blue-color;
+              }
+            }
+
+            .slider-content-text {
+              font-family: "Montserrat", sans-serif;
+              font-weight: 400;
+              font-size: 24px;
+              line-height: 130%;
+              color: #fff;
+              width: 456px;
+              margin-bottom: 30px;
+            }
+
+            .button {
+              margin-top: 20px;
+              width: 163px;
+            }
+          }
+
+
+        }
+      }
+
+      .button-prev {
+        cursor: pointer;
+        z-index: 50;
+        position: absolute;
+        left: 10px;
+        top: 236px;
+      }
+
+      .button-next {
+        cursor: pointer;
+        z-index: 50;
+        position: absolute;
+        right: 10px;
+        top: 236px;
+      }
+
+
+    }
+  }
+}
+
+.services {
+  margin-bottom: 120px;
+
+  .container {
+
+    .services-title {
+      @include headLora38;
+      text-align: start;
+      margin-bottom: 40px;
+    }
+
+    .services-blocks {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+
+      .services-block {
+        height: 498px;
+
+        .services-block-subtitle {
+          @include headLora20;
+          margin: 15px 0 10px 0;
+        }
+
+        &:first-child {
+          .services-block-text {
+            margin-bottom: 33px;
+          }
+        }
+
+        .services-block-text {
+          //width: 290px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 130%;
+          color: $main-text-color;
+          margin-bottom: 15px;
+
+        }
+
+        .services-block-actions {
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          span {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #709fdc;
+          }
+
+          button {
+            width: 163px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.company {
+  margin-bottom: 120px;
+
+  .container {
+    display: flex;
+
+    .company-image {
+      margin-right: 68px;
+    }
+
+    .company-info {
+
+      .company-info-title {
+        @include headLora38;
+        margin-bottom: 20px;
+      }
+
+      .company-info-text {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 130%;
+        color: $second-text-color;
+        width: 633px;
+        margin-bottom: 40px;
+      }
+
+      .company-info-subtitle {
+        font-family: "Lora", sans-serif;
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 130%;
+        color: $main-blue-color;
+        margin-bottom: 20px;
+      }
+
+      .company-info-advantages {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 70px;
+
+        .company-info-advantage {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .company-info-advantage-id {
+            position: relative;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: #b9d5fd;
+            display: grid;
+            justify-items: center;
+
+            span {
+              font-family: "Lora", sans-serif;
+              font-weight: 500;
+              font-size: 50px;
+              line-height: 130%;
+              color: $main-blue-color;
+              position: absolute;
+              bottom: -6px;
+
+            }
+          }
+
+          .company-info-advantage-text {
+            width: 256px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 130%;
+            color: $second-text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.popular {
+  margin-bottom: 120px;
+
+  .container {
+
+    .popular-title {
+      @include headLora38;
+      margin-bottom: 40px;
+    }
+
+    .popular-blocks {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+
+    }
+
+    .popular-blog {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+
+      a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: $main-blue-color;
+        text-decoration-skip-ink: none;
+        margin-right: 14px;
+      }
+
+    }
+  }
+}
+
+.reviews {
+  margin-bottom: 120px;
+
+  .container {
+
+    .reviews-title {
+      @include headLora38;
+      margin-bottom: 20px;
+    }
+
+    .reviews-carousel {
+      position: relative;
+
+      .review-item {
+        width: 396px;
+        height: 267px;
+        padding: 30px;
+        border: 2px solid $main-blue-color;
+        border-radius: 10px;
+        box-sizing: border-box;
+
+        .review-item-head {
+          display: flex;
+          align-items: center;
+
+          .review-item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-position: center;
+            background-size: cover;
+            margin-right: 26px;
+          }
+
+          .review-item-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: $main-blue-color;
+          }
+        }
+
+        .review-item-text {
+          margin-top: 15px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          color: $main-text-color;
+        }
+      }
+      .reviews-arrows {
+        display: flex;
+
+        a {
+          top: calc(50% - 5px);
+          display: flex;
+          position: absolute;
+          cursor: pointer;
+          &.move-backward {
+            left: -41px;
+          }
+          &.move-forward {
+            right: -41px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.info {
+  margin-bottom: 120px;
+
+  .container {
+    display: flex;
+
+    .info-contacts {
+      margin-left: 26px;
+
+      .info-title {
+        @include headLora38;
+        margin-bottom: 20px;
+      }
+
+      .info-item {
+        margin-bottom: 20px;
+
+        .info-subtitle {
+          @include headLora20;
+          margin-bottom: 10px;
+        }
+
+        .info-text {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 130%;
+          color: $main-text-color;
+          width: 503px;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        .info-icons {
+          display: flex;
+          align-items: center;
+
+          a {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+}

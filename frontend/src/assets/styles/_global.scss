@@ -1,5 +1,5 @@
 
-html,body {
+html, body {
   margin: 0;
   padding: 0;
 }
@@ -41,4 +41,36 @@ html,body {
   font-size: 14px;
   color: #a8aba7;
 
+}
+
+.mat-menu-item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $main-text-color;
+}
+
+.owl-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.owl-theme .owl-dots .owl-dot span {
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: #fff;
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 10px!important;
+  border: 2px solid $main-blue-color;
+  width: 731px !important;
 }
