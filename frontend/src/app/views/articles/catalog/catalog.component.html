@@ -6,9 +6,9 @@
     <div class="catalog-head">
 
       <div class="catalog-applied-filters">
-        <div class="catalog-applied-filter">
-          <span>Дизайн</span>
-          <a>
+        <div class="catalog-applied-filter" *ngFor="let appliedFilter of appliedFilters">
+          <span>{{appliedFilter.name}}</span>
+          <a (click)="removeAppliedFilter(appliedFilter)">
             <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="0.935531" y1="1.15002" x2="12.9563" y2="13.1708" stroke="#709FDC" stroke-linecap="round"/>
               <line x1="12.9236" y1="1.12984" x2="0.902784" y2="13.1507" stroke="#709FDC" stroke-linecap="round"/>
@@ -25,9 +25,10 @@
       <blog-card [article]="article" *ngFor="let article of allArticles"></blog-card>
     </div>
 
-    <div class="pagination">
-      <div class="pagination-arrow">
-        <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg"
+    <div class="pagination" *ngIf="pages.length > 1">
+      <div class="pagination-arrow" (click)="openPrevPage()"
+           [class.disabled]="activeParams.page ? activeParams.page === 1 : true">
+        <svg width="10" height="19" viewBox="0 0 10 19" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
           <rect x="10" width="18.6667" height="10" transform="rotate(90 10 0)" fill="url(#pattern0_16752_648)"/>
           <defs>
@@ -50,25 +51,15 @@
       </div>
 
       <div class="pagination-pages">
-        <a class="pagination-page active">
-          1
-        </a>
-        <a class="pagination-page">
-          2
-        </a>
-        <a class="pagination-page">
-          3
-        </a>
-        <a class="pagination-page">
-          4
-        </a>
-        <a class="pagination-page">
-          5
+        <a class="pagination-page" (click)="openPage(page)"
+           [class.active]="this.activeParams.page ? this.activeParams.page === page : (page === 1)"
+           *ngFor="let page of pages"> {{page}}
         </a>
       </div>
 
-      <div class="pagination-arrow">
-        <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg"
+      <div class="pagination-arrow" (click)="openNextPage()"
+           [class.disabled]="activeParams.page ? activeParams.page === pages.length : false">
+        <svg width="10" height="19" viewBox="0 0 10 19" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink">
           <rect y="19" width="18.6667" height="10" transform="rotate(-90 0 19)" fill="url(#pattern0_16752_648)"/>
           <defs>

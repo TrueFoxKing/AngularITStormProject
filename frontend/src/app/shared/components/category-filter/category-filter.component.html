@@ -17,8 +17,11 @@
 
   <div class="catalog-blog-filters-body">
     <label class="catalog-blog-filters-checkbox" *ngFor="let filterCategory of filterCategories">
-      <span class="">{{filterCategory.name}}</span>
-      <input type="checkbox" #input (change)="updateFilterParam(filterCategory.url, input.checked)">
+      <span class=""[class.active]="activeParams.categories?.includes(filterCategory.url)">
+        {{filterCategory.name}}</span>
+      <input type="checkbox" #input
+             (change)="updateFilterParam(filterCategory.url, input.checked)"
+             [checked]="activeParams.categories?.includes(filterCategory.url)" >
       <span class="custom-checkbox"></span>
     </label>
   </div>

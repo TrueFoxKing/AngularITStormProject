@@ -105,26 +105,26 @@
 </footer>
 
 <ng-template #popUp>
-<div class="consulting-popup" [formGroup]="consultingForm">
-  <div class="consulting-popup-close" (click)="close()">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
-      <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
-    </svg>
-  </div>
-  <div class="consulting-popup-title">Закажите бесплатную консультацию!</div>
-  <div class="consulting-popup-inputs">
-    <input type="text" class="input"
-           [ngStyle]="{'border-color': consultingForm.get('name')?.invalid
+  <div class="consulting-popup" [formGroup]="consultingForm">
+    <div class="consulting-popup-close" (click)="close()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1.93562" y1="2.6499" x2="13.9564" y2="14.6707" stroke="#BEBEBE" stroke-linecap="round"/>
+        <line x1="13.9236" y1="2.62971" x2="1.90277" y2="14.6505" stroke="#BEBEBE" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="consulting-popup-title">Закажите бесплатную консультацию!</div>
+    <div class="consulting-popup-inputs">
+      <input type="text" class="input"
+             [ngStyle]="{'border-color': consultingForm.get('name')?.invalid
           && (consultingForm.get('name')?.touched || consultingForm.get('name')?.dirty) ? 'red' : ''}"
-           placeholder="Ваше имя" formControlName="name">
-    <input type="text" class="input"
-           [ngStyle]="{'border-color': consultingForm.get('phone')?.invalid
+             placeholder="Ваше имя" formControlName="name">
+      <input type="text" class="input"
+             [ngStyle]="{'border-color': consultingForm.get('phone')?.invalid
           && (consultingForm.get('phone')?.touched || consultingForm.get('phone')?.dirty) ? 'red' : ''}"
-           placeholder="Ваш номер телефона" formControlName="phone">
+             placeholder="Ваш номер телефона" formControlName="phone">
+    </div>
+    <button class="button" (click)="sendConsultingRequest()">Заказать консультацию</button>
   </div>
-  <button class="button" (click)="sendConsultingRequest()">Заказать консультацию</button>
-</div>
 </ng-template>
 
 <ng-template #popUpSuccess>

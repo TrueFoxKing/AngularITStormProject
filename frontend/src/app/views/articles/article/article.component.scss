@@ -1,0 +1,163 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.article {
+  margin-top: 80px;
+  margin-bottom: 120px;
+
+  .container {
+
+    nav {
+      margin-bottom: 60px;
+
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .breadcrumb-separator {
+          font-weight: 400;
+          font-size: 14px;
+          color: #b9d5fd;
+          margin-right: 8px;
+        }
+
+        .breadcrumb-item {
+          font-size: 16px;
+
+          a {
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            color: #b9d5fd;
+            margin-right: 8px;
+          }
+
+          &.active {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color: $main-blue-color;
+          }
+        }
+      }
+    }
+
+    .article-head {
+      margin-bottom: 60px;
+      display: flex;
+
+      .article-head-info {
+        width: 607px;
+        margin-right: 106px;
+
+        .article-title {
+          @include headLora38;
+          margin-bottom: 40px;
+        }
+
+        .article-description {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 130%;
+          color: $main-blue-color;
+        }
+
+      }
+
+      .article-head-image {
+        border-radius: 5px;
+        background-position: center;
+        background-size: cover;
+        width: 527px;
+        height: 320px;
+      }
+    }
+
+    .article-content {
+      display: flex;
+
+      .article-content-main {
+        width: 818px;
+        margin-right: 130px;
+      }
+
+      .article-content-related {
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+
+        .article-content-related-title {
+          font-family: "Lora", sans-serif;
+          font-weight: 400;
+          font-size: 26px;
+          color: $main-blue-color;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+.container::ng-deep {
+
+  h1 {
+    @include headLora38;
+  }
+
+  i {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  h3 {
+    @include headLora20;
+  }
+
+  p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $main-text-color;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 130%;
+      color: $main-text-color;
+      margin-bottom: 10px;
+    }
+  }
+
+  ol {
+    padding: 20px;
+    margin: 0;
+
+    li {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 130%;
+      color: $main-text-color;
+      margin-bottom: 10px;
+
+      &::marker {
+        //font-weight: bold;
+        padding-right: 25px;
+      }
+    }
+  }
+
+
+}

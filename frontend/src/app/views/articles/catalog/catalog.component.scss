@@ -16,6 +16,7 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      height: 43px;
 
       .catalog-applied-filters {
         display: flex;
@@ -66,8 +67,9 @@
         display: grid;
         justify-items: center;
 
-        &:disabled {
-          fill: grey;
+        &.disabled  {
+          opacity: 0.4;
+          pointer-events: none;
         }
       }
 
@@ -104,3 +106,4 @@
     }
   }
 }
+

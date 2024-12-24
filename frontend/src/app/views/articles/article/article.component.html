@@ -1,1 +1,39 @@
-<p>article works!</p>
+
+<article class="article" *ngIf="article">
+  <div class="container">
+
+    <nav aria-label="breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/catalog">Блог</a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item active" aria-current="page">{{article.title}}</li>
+      </ul>
+    </nav>
+
+    <div class="article-head">
+
+      <div class="article-head-info">
+        <div class="article-title">{{article.title}}</div>
+        <div class="article-description">{{article.description}}</div>
+      </div>
+
+      <div class="article-head-image" style="background-image: url({{serverStaticPath + article.image}})">
+
+      </div>
+
+    </div>
+
+    <div class="article-content">
+
+      <div class="article-content-main" [innerHTML]="article.text"></div>
+
+      <div class="article-content-related">
+        <div class="article-content-related-title">Читайте также:</div>
+        <blog-card></blog-card>
+      </div>
+    </div>
+
+  </div>
+</article>

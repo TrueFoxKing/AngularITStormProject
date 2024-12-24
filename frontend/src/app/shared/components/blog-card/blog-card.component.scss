@@ -19,6 +19,12 @@
     @include headLora20;
     //height: 78px;
     margin: 15px 0 20px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Количество строк */
+    -webkit-box-orient: vertical;
+
   }
 
   .blog-card-text {
@@ -30,7 +36,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 8; /* Количество строк */
+    -webkit-line-clamp: 6; /* Количество строк */
     -webkit-box-orient: vertical;
   }
 
