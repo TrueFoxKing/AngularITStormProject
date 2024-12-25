@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {ArticlesType} from "../../../types/articles.type";
 import {ActiveParamsType} from "../../../types/active-params.type";
+import {SingleArticleType} from "../../../types/single-article.type";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ export class ArticlesService {
 
   constructor(private http: HttpClient) {
   }
-
 
   getTopArticles(): Observable<ArticlesType[]> {
     return this.http.get<ArticlesType[]>(environment.api + 'articles/top');
@@ -24,8 +24,8 @@ export class ArticlesService {
     });
   }
 
-  getArticle(url: string): Observable<ArticlesType> {
-    return this.http.get<ArticlesType>(environment.api + 'articles/' + url);
+  getArticle(url: string): Observable<SingleArticleType> {
+    return this.http.get<SingleArticleType>(environment.api + 'articles/' + url);
   }
 
   getRelatedArticles(url: string): Observable<ArticlesType[]> {

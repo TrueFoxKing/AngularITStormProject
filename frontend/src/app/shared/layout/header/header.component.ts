@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../core/auth/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
 import {UserInfoType} from "../../../../types/user-info.type";
 import {DefaultResponseType} from "../../../../types/default-response.type";
 
@@ -17,7 +16,6 @@ export class HeaderComponent implements OnInit {
   userInfo: UserInfoType | null = null;
 
   constructor(private authService: AuthService,
-              private userService: UserService,
               private _snackBar: MatSnackBar,
               private router: Router) {
     this.isLogged = this.authService.getIsLoggedIn();
@@ -29,7 +27,7 @@ export class HeaderComponent implements OnInit {
       this.isLogged = isLoggedIn;
     });
 
-    this.userService.getUserInfo().subscribe({
+    this.authService.getUserInfo().subscribe({
       next: (data: UserInfoType | DefaultResponseType) => {
         if ('error' in data) {
           this._snackBar.open('Ошибка загрузки данных пользователя');

@@ -4,6 +4,7 @@ import {DefaultResponseType} from "../../../types/default-response.type";
 import {LoginResponseType} from "../../../types/login-response.type";
 import {Observable, Subject, throwError} from "rxjs";
 import {environment} from "../../../environments/environment";
+import {UserInfoType} from "../../../types/user-info.type";
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,16 @@ export class AuthService {
     throw throwError(() => 'Can not find token')
   }
 
+  refresh(): Observable<DefaultResponseType | LoginResponseType> {
+    const tokens = this.getTokens();
+    if (tokens && tokens.refreshToken) {
+      return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'refresh', {
+        refreshToken: tokens.refreshToken
+      });
+    }
+    throw throwError(() => 'Can not use token')
+  }
+
   public getIsLoggedIn(): boolean {
     return this.isLogged;
   }
@@ -76,12 +87,16 @@ export class AuthService {
     return localStorage.getItem(this.userIdKey);
   }
 
-  set userId(id: string | null) {
-    if (id) {
-      localStorage.setItem(this.userIdKey, id);
+  set userId(userId: string | null) {
+    if (userId) {
+      localStorage.setItem(this.userIdKey, userId);
     } else {
       localStorage.removeItem(this.userIdKey);
     }
+  }
+
+  getUserInfo(): Observable<UserInfoType | DefaultResponseType> {
+    return this.http.get<UserInfoType | DefaultResponseType>(environment.api + 'users');
   }
 
 }

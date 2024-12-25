@@ -5,6 +5,5 @@ export type ArticlesType = {
   image: string,
   date: string,
   category: string,
-  url: string,
-  text?: string
+  url: string
 }

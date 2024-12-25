@@ -97,6 +97,9 @@
           color: $main-blue-color;
           margin-bottom: 20px;
         }
+        .related-margin {
+          margin-bottom: 60px;
+        }
       }
     }
 
@@ -120,6 +123,112 @@
 
         &:last-child {
           margin-right: 0;
+        }
+      }
+    }
+
+    .article-comments {
+
+      .article-comments-title {
+        @include headLora38;
+        margin-bottom: 40px;
+      }
+
+      .article-comments-access {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        color: #071739;
+        a {
+          text-decoration: none;
+          color: #709fdc;
+        }
+      }
+
+      .article-comments-textarea {
+        margin-bottom: 60px;
+
+        textarea {
+          display: block;
+          color: $main-text-color;
+          border: 2px solid $main-blue-color;
+          border-radius: 3px;
+          padding: 20px 20px 20px 20px;
+          width: 774px;
+          height: 248px;
+          margin-bottom: 20px;
+          outline: none;
+        }
+
+        .button {
+          width: 422px;
+        }
+      }
+
+      .article-comments-list {
+
+        .comment-item {
+          margin-bottom: 40px;
+
+          .comment-item-header {
+            display: flex;
+            margin-bottom: 15px;
+            height: 60px;
+
+            .comment-item-avatar {
+              margin-right: 25px;
+            }
+
+            .comment-item-info {
+              font-family: "Montserrat", sans-serif;
+              font-weight: 600;
+
+              .comment-item-name {
+                margin-bottom: 10px;
+                font-size: 18px;
+                color: $main-blue-color;
+              }
+
+              .comment-item-date {
+                font-size: 14px;
+                color: #bebebe;
+              }
+            }
+          }
+
+          .comment-item-text {
+            width: 854px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+            color: $main-text-color;
+            margin-bottom: 40px;
+          }
+
+          .comment-item-actions {
+            display: flex;
+            align-items: center;
+
+            div {
+              display: flex;
+              align-items: center;
+              margin-right: 15px;
+              cursor: pointer;
+
+              &:last-child {
+                margin-right: 0;
+              }
+
+              span {
+                margin-right: 3px;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 600;
+                font-size: 14px;
+                color: $main-text-color;
+              }
+            }
+          }
         }
       }
     }
