@@ -78,6 +78,7 @@
 
     .article-content {
       display: flex;
+      margin-bottom: 60px;
 
       .article-content-main {
         width: 818px;
@@ -98,8 +99,57 @@
         }
       }
     }
+
+    .article-share {
+      display: flex;
+      align-items: center;
+      margin-bottom: 60px;
+
+      .article-share-text {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: $main-blue-color;
+        margin-right: 20px;
+      }
+
+      .article-share-icons {
+        display: flex;
+        align-items: center;
+        margin-right: 14px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .container::ng-deep {
 
