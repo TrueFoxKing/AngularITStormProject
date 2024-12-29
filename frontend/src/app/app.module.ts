@@ -18,6 +18,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {PolicyComponent} from './views/policy/policy.component';
 import {SharedModule} from "./shared/shared.module";
 import {AuthInterceptor} from "./core/auth/auth-interceptor";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {AuthInterceptor} from "./core/auth/auth-interceptor";
     MatSnackBarModule,
     MatMenuModule,
     MatDialogModule,
+    MatSelectModule,
     CarouselModule,
     SharedModule,
     AppRoutingModule,

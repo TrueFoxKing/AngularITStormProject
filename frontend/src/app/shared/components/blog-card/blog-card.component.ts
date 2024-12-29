@@ -9,10 +9,20 @@ import {environment} from "../../../../environments/environment";
 })
 export class BlogCardComponent implements OnInit {
 
-  @Input() article!: ArticlesType;
+  @Input() article: ArticlesType;
   serverStaticPath = environment.serverStaticPath;
 
-  constructor() { }
+  constructor() {
+    this.article = {
+      id: '',
+      title: '',
+      description: '',
+      image: '',
+      date: '',
+      category: '',
+      url: ''
+    }
+  }
 
   ngOnInit(): void {
   }

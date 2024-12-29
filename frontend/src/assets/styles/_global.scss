@@ -2,6 +2,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -30,18 +31,6 @@ html, body {
   }
 }
 
-.input {
-  box-sizing: border-box;
-  padding: 17px 20px;
-  border: 2px solid $main-blue-color;
-  border-radius: 3px;
-  outline: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: #a8aba7;
-
-}
 
 .mat-menu-item {
   font-family: 'Montserrat', sans-serif;
@@ -73,4 +62,73 @@ html, body {
   border-radius: 10px!important;
   border: 2px solid $main-blue-color;
   width: 731px !important;
+}
+
+
+.invalid-feedback {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.popup-error {
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: red;
+  font-size: 14px;
+}
+
+.input {
+  box-sizing: border-box;
+  padding: 17px 20px;
+  border: 2px solid $main-blue-color;
+  border-radius: 3px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #a8aba7;
+}
+
+.mat-form-field {
+  width: 422px;
+}
+
+.mat-select {
+  box-sizing: border-box;
+  padding: 17px 20px;
+  width: 422px;
+  height: 53px;
+  align-items: center;
+  border-radius: 3px;
+  border: 2px solid $main-blue-color;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+.mat-select-value {
+  color: $main-text-color;
+}
+.mat-form-field-underline  {
+  display: none;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+.mat-select-arrow {
+  border-top: 0!important;
+}
+
+.mat-option-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $main-text-color;
 }

@@ -57,12 +57,13 @@ export class AuthInterceptor implements HttpInterceptor {
           return next.handle(authReq);
 
         }),
-        catchError(error => {
-          this.authService.removeTokens();
-          this.router.navigate(['/']);
-          return throwError(() => error)
-        })
-      )
+        // Закомментирова так как при оптравке жалобы 2-ой раз вылетало.
+        // catchError(error => {
+        //   this.authService.removeTokens();
+        //   this.router.navigate(['/']);
+        //   return throwError(() => error)
+        // })
+      );
   }
 
 

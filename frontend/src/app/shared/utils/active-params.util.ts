@@ -7,6 +7,9 @@ export class ActiveParamsUtil {
     if (params.hasOwnProperty('categories')) {
       activeParams.categories = Array.isArray(params['categories']) ? params['categories'] : [params['categories']];
     }
+    if (params.hasOwnProperty('page')) {
+      activeParams.page = +params['page']
+    }
     return activeParams;
   }
 }

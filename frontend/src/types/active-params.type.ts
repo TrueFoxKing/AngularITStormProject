@@ -1,4 +1,4 @@
 export type ActiveParamsType = {
-  categories?: string[],
+  categories: string[],
   page?: number,
 }

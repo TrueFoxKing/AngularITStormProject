@@ -13,7 +13,7 @@ import {DefaultResponseType} from "../../../../types/default-response.type";
 export class HeaderComponent implements OnInit {
 
   isLogged: boolean = false;
-  userInfo: UserInfoType | null = null;
+  userName: string = '';
 
   constructor(private authService: AuthService,
               private _snackBar: MatSnackBar,
@@ -22,25 +22,24 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.authService.isLogged$.subscribe((isLoggedIn: boolean) => {
       this.isLogged = isLoggedIn;
+      this.getUserName();
     });
+    this.getUserName();
 
-    this.authService.getUserInfo().subscribe({
-      next: (data: UserInfoType | DefaultResponseType) => {
-        if ('error' in data) {
-          this._snackBar.open('Ошибка загрузки данных пользователя');
-        } else {
-          this.userInfo = data;
-
-        }
-      },
-      error: (err: Error) => {
-        console.error('Ошибка получения данных пользователя:', err.message);
-      },
-    });
-
+    // this.authService.getUserInfo().subscribe({
+    //   next: (data: UserInfoType | DefaultResponseType) => {
+    //     if ('error' in data) {
+    //       this._snackBar.open('Ошибка загрузки данных пользователя');
+    //     } else {
+    //       this.userName = data;
+    //     }
+    //   },
+    //   error: (err: Error) => {
+    //     console.error('Ошибка получения данных пользователя:', err.message);
+    //   },
+    // });
   }
 
   logout(): void {
@@ -53,6 +52,15 @@ export class HeaderComponent implements OnInit {
           this.doLogout();
         }
       })
+  }
+
+  getUserName(): void {
+    if (this.isLogged) {
+      this.authService.getUserInfo()
+        .subscribe((data:UserInfoType | DefaultResponseType) => {
+          this.userName = (data as UserInfoType).name
+        })
+    }
   }
 
   doLogout(): void {

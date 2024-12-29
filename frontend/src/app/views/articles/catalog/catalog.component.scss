@@ -47,6 +47,103 @@
         }
       }
 
+      .catalog-blog-filters {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        cursor: pointer;
+        width: 257px;
+        box-sizing: border-box;
+        position: relative;
+
+        .catalog-blog-filters-head {
+          border-radius: 5px 5px 0 0;
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: $main-text-color;
+            margin-right: 68px;
+          }
+        }
+
+        .catalog-blog-filters-body {
+          position: absolute;
+          top: 48px;
+          width: 100%;
+          z-index: 5;
+          display: none;
+          padding: 12px 0;
+          box-sizing: border-box;
+          //padding: 12px 23px;
+          //display: flex;
+          flex-direction: column;
+          border-radius: 0 0 5px 5px;
+
+          input[type="checkbox"] {
+            display: none;
+          }
+
+          .catalog-blog-filters-checkbox {
+            margin: 0 23px 14px 23px;
+            //margin-bottom:14px ;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            span {
+              font-family: "Montserrat", sans-serif;
+              font-weight: 400;
+              font-size: 16px;
+              color: #bebebe;
+            }
+
+            .active {
+              color: $main-text-color;
+            }
+
+            .custom-checkbox {
+              font-size: 24px;
+              color: #bebebe;
+
+              &::before {
+                content: "+";
+                display: inline-block;
+              }
+            }
+
+            input[type="checkbox"]:checked + .custom-checkbox::before {
+              // Состояние "активный"
+              content: "\2013";
+              color: $main-text-color;
+            }
+          }
+        }
+
+        &.open {
+          .catalog-blog-filters-head {
+            background-color: #b9d5fd;
+            width: 211px;
+            height: 19px;
+            padding: 12px 23px;
+          }
+
+          .catalog-blog-filters-body {
+            display: flex;
+            background: #fff;
+          }
+        }
+
+        &.filter-open .catalog-blog-filters-body {
+          display: flex;
+        }
+
+
+      }
     }
 
     .catalog-articles {
@@ -63,14 +160,17 @@
       justify-content: center;
 
       .pagination-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
-        display: grid;
-        justify-items: center;
 
-        &.disabled  {
-          opacity: 0.4;
+        &.disabled {
+          opacity: 0.5;
           pointer-events: none;
         }
+
+
       }
 
       .pagination-pages {

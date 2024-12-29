@@ -59,9 +59,9 @@
         <div class="footer-info-block-head">
           E-mail
         </div>
-        <div class="footer-info-block-email">
+        <a class="footer-info-block-email" href="mailto:info@itstorm.com">
           info@itstorm.com
-        </div>
+        </a>
       </div>
 
       <div class="footer-info-block">
@@ -118,12 +118,20 @@
              [ngStyle]="{'border-color': consultingForm.get('name')?.invalid
           && (consultingForm.get('name')?.touched || consultingForm.get('name')?.dirty) ? 'red' : ''}"
              placeholder="Ваше имя" formControlName="name">
+      <div class="invalid-feedback"
+      *ngIf="consultingForm.get('name')?.invalid && (consultingForm.get('name')?.dirty || consultingForm.get('name')?.touched)">
+        Вы должны ввести имя
+      </div>
       <input type="text" class="input"
              [ngStyle]="{'border-color': consultingForm.get('phone')?.invalid
           && (consultingForm.get('phone')?.touched || consultingForm.get('phone')?.dirty) ? 'red' : ''}"
              placeholder="Ваш номер телефона" formControlName="phone">
+      <div class="invalid-feedback"
+      *ngIf="consultingForm.get('phone')?.invalid && (consultingForm.get('phone')?.dirty || consultingForm.get('phone')?.touched)">
+        Вы должны ввести корректный номер телефона
+      </div>
     </div>
-    <button class="button" (click)="sendConsultingRequest()">Заказать консультацию</button>
+    <button class="button" [disabled]="consultingForm.invalid" (click)="sendConsultingRequest(consultationRequest)">Заказать консультацию</button>
   </div>
 </ng-template>
 

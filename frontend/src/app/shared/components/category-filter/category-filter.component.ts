@@ -22,43 +22,43 @@ export class CategoryFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryService.getCategories()
-      .subscribe(data => {
-        this.filterCategories = data;
-      });
-
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.activeParams = ActiveParamsUtil.processParams(params);
-      if (params['categories']) {
-        this.activeParams.categories = Array.isArray(params['categories']) ? params['categories'] : [params['categories']];
-        this.open = true;
-      }
-    });
+    // this.categoryService.getCategories()
+    //   .subscribe(data => {
+    //     this.filterCategories = data;
+    //   });
+    //
+    // this.activatedRoute.queryParams.subscribe(params => {
+    //   this.activeParams = ActiveParamsUtil.processParams(params);
+    //   if (params['categories']) {
+    //     this.activeParams.categories = Array.isArray(params['categories']) ? params['categories'] : [params['categories']];
+    //     this.open = true;
+    //   }
+    // });
   }
 
-  toggle(): void {
-    this.open = !this.open;
-  }
+  // toggle(): void {
+  //   this.open = !this.open;
+  // }
 
-  updateFilterParam(url: string, checked: boolean): void {
-
-    if (this.activeParams && this.activeParams.categories) {
-      const existingTypeInParams = this.activeParams.categories.find(item => item === url);
-      if (existingTypeInParams && !checked) {
-        this.activeParams.categories = this.activeParams.categories.filter(item => item !== url);
-      } else if (!existingTypeInParams && checked) {
-        // не использовать push так как он работает криво(багнутый)
-        // this.activeParams.categories.push(url);
-        this.activeParams.categories = [...this.activeParams.categories, url];
-      }
-    } else if (checked) {
-      this.activeParams.categories = [url];
-    }
-    this.activeParams.page = 1;
-    this.router.navigate(['/catalog'], {
-      queryParams: this.activeParams
-    });
-  }
+  // updateFilterParam(url: string, checked: boolean): void {
+  //
+  //   if (this.activeParams && this.activeParams.categories) {
+  //     const existingTypeInParams = this.activeParams.categories.find(item => item === url);
+  //     if (existingTypeInParams && !checked) {
+  //       this.activeParams.categories = this.activeParams.categories.filter(item => item !== url);
+  //     } else if (!existingTypeInParams && checked) {
+  //       // не использовать push так как он работает криво(багнутый)
+  //       // this.activeParams.categories.push(url);
+  //       this.activeParams.categories = [...this.activeParams.categories, url];
+  //     }
+  //   } else if (checked) {
+  //     this.activeParams.categories = [url];
+  //   }
+  //   this.activeParams.page = 1;
+  //   this.router.navigate(['/catalog'], {
+  //     queryParams: this.activeParams
+  //   });
+  // }
 
   @HostListener('document:click', ['$event'])
   click(event: Event): void {

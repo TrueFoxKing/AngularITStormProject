@@ -387,3 +387,53 @@
     }
   }
 }
+
+
+.popup {
+  text-align: center;
+  position: relative;
+  padding: 157px 142px;
+
+  .popup-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  .popup-title {
+    @include headLora38;
+    margin-bottom: 20px;
+  }
+
+  .popup-inputs {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .popup-input {
+
+      select {
+        width: 422px;
+        margin-bottom: 5px;
+
+        option {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 14px;
+          color: $main-blue-color;
+        }
+      }
+
+      input {
+        width: 422px;
+        margin-bottom: 5px;
+      }
+    }
+
+  }
+  .button {
+    width: 422px;
+  }
+}

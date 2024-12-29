@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ArticlesService} from "../../../shared/services/articles.service";
 import {ArticlesType} from "../../../../types/articles.type";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -16,10 +16,11 @@ import {debounceTime} from "rxjs";
 })
 export class CatalogComponent implements OnInit {
 
+  open: boolean = false;
   allArticles: ArticlesType[] = [];
+  filterCategories: CategoryType[] = [];
   activeParams: ActiveParamsType = {categories: []};
   appliedFilters: AppliedFilter[] = [];
-  filterCategories: CategoryType[] = [];
   pages: number[] = [];
 
   constructor(private articlesService: ArticlesService,
@@ -31,12 +32,12 @@ export class CatalogComponent implements OnInit {
   ngOnInit(): void {
 
     this.categoryService.getCategories()
-      .subscribe(data => {
+      .pipe(
+        debounceTime(500)
+      )
+      .subscribe((data: CategoryType[]) => {
         this.filterCategories = data;
         this.activatedRoute.queryParams
-          .pipe(
-            debounceTime(500)
-          )
           .subscribe(params => {
             this.activeParams = ActiveParamsUtil.processParams(params);
             this.appliedFilters = [];
@@ -45,12 +46,12 @@ export class CatalogComponent implements OnInit {
               if (category) {
                 this.appliedFilters.push({
                   name: category.name,
-                  urlParam: url
+                  urlParam: category.url
                 });
               }
             });
-            this.articlesService.getAllArticles(this.activeParams)
-              .subscribe(data => {
+           this.articlesService.getAllArticles(this.activeParams)
+              .subscribe((data: { count: number, pages: number, items: ArticlesType[] }) => {
                 this.pages = [];
                 for (let i = 1; i <= data.pages; i++) {
                   this.pages.push(i);
@@ -60,7 +61,30 @@ export class CatalogComponent implements OnInit {
           });
       });
 
+  }
 
+  toggle(): void {
+    this.open = !this.open;
+  }
+
+  updateFilterParam(url: string, checked: boolean): void {
+
+    if (this.activeParams && this.activeParams.categories) {
+      const existingTypeInParams = this.activeParams.categories.find(item => item === url);
+      if (existingTypeInParams && !checked) {
+        this.activeParams.categories = this.activeParams.categories.filter(item => item !== url);
+      } else if (!existingTypeInParams && checked) {
+        // не использовать push так как он работает криво(багнутый)
+        // this.activeParams.categories.push(url);
+        this.activeParams.categories = [...this.activeParams.categories, url];
+      }
+    } else if (checked) {
+      this.activeParams.categories = [url];
+    }
+    this.activeParams.page = 1;
+    this.router.navigate(['/catalog'], {
+      queryParams: this.activeParams
+    });
   }
 
   removeAppliedFilter(appliedFilter: AppliedFilter): void {
@@ -72,30 +96,44 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  openPage(page: number) {
-    this.activeParams.page = page;
-    this.router.navigate(['/catalog'], {
-      queryParams: this.activeParams
-    });
+  openPage(page: number): void {
+    if (this.activeParams.page !== page) {
+      this.activeParams.page = page;
+      this.router.navigate(['/catalog'], {
+        queryParams: this.activeParams
+      });
+    }
   }
 
-  openPrevPage() {
+  openPrevPage(): void {
+    console.log('назад')
     if (this.activeParams.page && this.activeParams.page > 1) {
+      console.log('Navigating to previous page');
       this.activeParams.page--;
       this.router.navigate(['/catalog'], {
         queryParams: this.activeParams
       });
     }
-
   }
 
-  openNextPage() {
+  openNextPage(): void {
+    console.log('вперёд')
     if (this.activeParams.page && this.activeParams.page < this.pages.length) {
       this.activeParams.page++;
       this.router.navigate(['/catalog'], {
         queryParams: this.activeParams
       });
     }
+  }
+
+
+  @HostListener('document:click', ['$event'])
+  click(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (target.closest('.catalog-blog-filters-head') || target.closest('.catalog-blog-filters-body')) {
+      return;
+    }
+    this.open = false;
   }
 
 

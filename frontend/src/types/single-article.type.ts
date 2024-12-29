@@ -1,16 +1,6 @@
 export type SingleArticleType = {
   text: string,
-  comments: {
-    id: string;
-    text: string;
-    date: string;
-    likesCount: number;
-    dislikesCount: number;
-    user: {
-      id: string;
-      name: string;
-    }
-  },
+  comments: Array<CommentType>,
   commentsCount: number,
   id: string,
   title: string,
@@ -22,4 +12,19 @@ export type SingleArticleType = {
 }
 
 
+export type CommentType = {
+  id: string,
+  text: string,
+  date: string,
+  likesCount: number,
+  dislikesCount: number,
+  user: {
+    id: string,
+    name: string
+  }
+}
 
+export type showMoreCommentType = {
+  allCount: number,
+  comments: Array<CommentType>
+}
